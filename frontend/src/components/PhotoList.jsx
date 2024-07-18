@@ -62,7 +62,11 @@ const PhotoList = (props) => {
     <ul className="photo-list">
       {/* Insert React */}
 
-      <PhotoListItem data={props.data}/>
+
+{sampleDataForPhotoList.map( photo => (
+      <PhotoListItem key={photo.id} data={props.data}/>
+
+    ))}
     </ul>
   );
 };
