@@ -15,8 +15,8 @@ import "../styles/PhotoListItem.scss";
 //   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 // };
 
-const PhotoListItem = (props) => {
-  const { id, location, imageSource, username, profile } = props.data;
+const PhotoListItem = ({ id, location, imageSource, username, profile }) => {
+  // const { id, location, imageSource, username, profile } = props.data;
   const [favorite, setfavorite] = useState('off');
   const switchfavorite = () => setfavorite((favorite === "on") ? "off" : "on");
 

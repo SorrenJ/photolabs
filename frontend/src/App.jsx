@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from "react";
 // import PhotoListItem from './components/PhotoListItem';
 import PhotoList from './components/PhotoList';
-
+import PhotoFavButton from './components/PhotoFavButton';
 import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
@@ -25,7 +25,7 @@ const App = () => {
  
   return (
     <div className="App">
-      <PhotoList data={sampleDataForPhotoListItem}/>
+      <PhotoList />
     </div>
   );
 };

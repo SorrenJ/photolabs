@@ -64,7 +64,13 @@ const PhotoList = (props) => {
 
 {/* array of sample data */}
 {sampleDataForPhotoList.map( photo => (
-      <PhotoListItem key={photo.id} data={props.data}/>
+     <PhotoListItem key={photo.id} 
+     id={photo.id}
+     location={photo.location}
+     imageSource={photo.urls.regular}
+     username={photo.user.name}
+     profile={photo.user.profile}
+     />
 
     ))}
     </ul>
