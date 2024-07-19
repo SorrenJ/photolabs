@@ -62,7 +62,7 @@ const PhotoList = (props) => {
     <ul className="photo-list">
       {/* Insert React */}
 
-
+{/* array of sample data */}
 {sampleDataForPhotoList.map( photo => (
       <PhotoListItem key={photo.id} data={props.data}/>
 
@@ -72,3 +72,4 @@ const PhotoList = (props) => {
 };
 
 export default PhotoList;
+ 
