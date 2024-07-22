@@ -3,6 +3,7 @@ import { useState } from "react";
 // import PhotoListItem from './components/PhotoListItem';
 import PhotoList from './components/PhotoList';
 import TopicList from "./components/TopicList";
+import TopNavigationBar from './components/TopNavigationBar';
 import PhotoFavButton from './components/PhotoFavButton';
 import './App.scss';
 
@@ -26,7 +27,8 @@ const App = () => {
  
   return (
     <div className="App">
-      <TopicList/>
+         <TopNavigationBar />
+    
       <PhotoList />
     </div>
   );
