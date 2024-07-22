@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 // import PhotoListItem from './components/PhotoListItem';
 import PhotoList from './components/PhotoList';
+import TopicList from "./components/TopicList";
 import PhotoFavButton from './components/PhotoFavButton';
 import './App.scss';
 
@@ -25,6 +26,7 @@ const App = () => {
  
   return (
     <div className="App">
+      <TopicList/>
       <PhotoList />
     </div>
   );
