@@ -7,7 +7,7 @@ import "../styles/HomeRoute.scss"
 const HomeRoute = () => {
   return (
     <div className="home-route">
-<TopNavigationBar/>
+{/* <TopNavigationBar/> */}
 <PhotoList/>
 </div>
   );

@@ -4,7 +4,7 @@ import { useState } from "react";
 import "../styles/PhotoListItem.scss";
 
 
-// const sampleDataForPhotoListItem = {
+// const sampleDataForPhotoListphoto = {
 //   id: "1",
 //   location: {
 //     city: "Montreal",
@@ -15,30 +15,25 @@ import "../styles/PhotoListItem.scss";
 //   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 // };
 
-const PhotoListItem = ({ id, location, imageSource, username, profile }) => {
+const PhotoListphoto = ({ photo }) => {
   // const { id, location, imageSource, username, profile } = props.data;
-  const [favorite, setfavorite] = useState('off');
-  const switchfavorite = () => setfavorite((favorite === "on") ? "off" : "on");
+  const [favorite, setFavorite] = useState('off');
+  const switchFavorite = () => setFavorite((favorite === "on") ? "off" : "on");
 
   return (
-    <div>
- 
-    <div className="photo-list__item">
-    <PhotoFavButton favorite={favorite} switchfavorite={switchfavorite} />
-     
-      <img className="photo-list__image" src={imageSource} alt="Sample" />
-     
-      <div className="photo-list__user-details">
-     
-        <img className="photo-list__user-profile" src={profile} alt="Profile" />
-        <div className="photo-list__user-info">
-          <p>{username}</p>
-          <p className="photo-list__user-location">{location.city}, {location.country}</p>
+    <li className="photo-list__item">
+      <div className="photo-list__photo">
+        <PhotoFavButton favorite={favorite} switchFavorite={switchFavorite} />
+        <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.name}`} />
+        <div className="photo-list__user-details">
+          <img className="photo-list__user-profile" src={photo.user.profile} alt={`Profile of ${photo.user.name}`} />
+          <div className="photo-list__user-info">
+            <p>{photo.user.name}</p>
+            <p className="photo-list__user-location">{photo.location.city}, {photo.location.country}</p>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
+    </li>
   );
 };
-
-export default PhotoListItem;
+export default PhotoListphoto;

@@ -7,19 +7,19 @@ import FavIcon from './FavIcon';
 
 function PhotoFavButton(props) {
  
-  const { favorite, switchfavorite } = props;
+  const { favorite, switchFavorite } = props;
 
 
 
   const handleClick = () => {
-    switchfavorite();
+    switchFavorite();
    
   };
 
  
   return (
     <div className="photo-list__fav-icon">
-    <div className="photo-list__fav-icon-svg" onClick={switchfavorite}>
+    <div className="photo-list__fav-icon-svg" onClick={switchFavorite}>
     <FavIcon selected={favorite === 'on'} />
   </div>
   </div>
