@@ -8,10 +8,10 @@ const sampleDataForTopicListItem = {
   label: "Nature",
 };
 
-const TopicListItem = ({key, id, slug, title}) => {
+const TopicListItem = ({topic}) => {
   return (
     <div className="topic-list__item">
-         <span> {title} </span>
+         <span> {topic.title} </span>
     </div>
   );
 
