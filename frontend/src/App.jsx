@@ -5,6 +5,10 @@ import PhotoList from './components/PhotoList';
 import TopicList from "./components/TopicList";
 import TopNavigationBar from './components/TopNavigationBar';
 import PhotoFavButton from './components/PhotoFavButton';
+
+import photos from "./mocks/photos";
+import topics from "./mocks/topics";
+
 import HomeRoute from './routes/HomeRoute'
 import './App.scss';
 
@@ -28,7 +32,7 @@ const App = () => {
  
   return (
     <div className="App">
-  <HomeRoute/>
+  <HomeRoute photos={photos} topics={topics} />
     </div>
   );
 };
