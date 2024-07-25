@@ -5,12 +5,12 @@ import '../styles/TopNavigationBar.scss'
 import TopicList from "./TopicList";
 import topics from "../mocks/topics";
 
-const TopNavigationBar = (props, {isFavPhotoExist}) => {
+const TopNavigationBar = (props) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList topics={props.topics} />
-      <FavBadge isFavPhotoExist={isFavPhotoExist}/>.
+      <FavBadge isFavPhotoExist={props.isFavPhotoExist}/>.
    
     </div>
   )

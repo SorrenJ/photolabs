@@ -15,15 +15,16 @@ import "../styles/PhotoListItem.scss";
 //   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 // };
 
-const PhotoListItem = ({photo}) => {
-  // const { id, location, imageSource, username, profile } = props.data;
-  const [favorite, setFavorite] = useState('off');
-  const switchFavorite = () => setFavorite((favorite === "on") ? "off" : "on");
+const PhotoListItem = ({photo, favorited, toggleFavorite}) => {
+
+  // const [favorite, setFavorite] = useState('off');
+  // const switchFavorite = () => setFavorite((favorite === "on") ? "off" : "on");
 
   return (
     <li className="photo-list__item">
       <div className="photo-list__photo">
-        <PhotoFavButton favorite={favorite} switchFavorite={switchFavorite} />
+        <PhotoFavButton favorited={favorited} toggleFavorite={toggleFavorite} photoId={photo.id}/>
+       
         <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.name}`} />
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={photo.user.profile} alt={`Profile of ${photo.user.name}`} />
