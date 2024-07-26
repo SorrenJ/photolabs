@@ -13,7 +13,7 @@ import topics from "../mocks/topics";
 const HomeRoute = () => {
   
   //const [favorite, setFavorite] = useState('off');
-  const [favorites, setFavorites, setIsFavPhotoExist ] = useState([]); // create an empty favoritted array
+  const [favorites, setFavorites] = useState([]); // create an empty favoritted array
 
   const toggleFavorite = (photoId) =>{
     console.log("Toggle favorites", photoId)

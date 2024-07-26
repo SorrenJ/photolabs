@@ -1,29 +1,14 @@
 import React from "react";
 import PhotoFavButton from "./PhotoFavButton";
-import { useState } from "react";
 import "../styles/PhotoListItem.scss";
 
 
-// const sampleDataForPhotoListphoto = {
-//   id: "1",
-//   location: {
-//     city: "Montreal",
-//     country: "Canada",
-//   },
-//   imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-//   username: "Joe Example",
-//   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-// };
-
-const PhotoListItem = ({photo, favorited, toggleFavorite}) => {
-
-  // const [favorite, setFavorite] = useState('off');
-  // const switchFavorite = () => setFavorite((favorite === "on") ? "off" : "on");
+const PhotoListItem = ({photo, favorited, toggleFavorite, onClick}) => {
 
   return (
-    <li className="photo-list__item">
+    <li className="photo-list__item" onClick={() => onClick(photo)}> 
       <div className="photo-list__photo">
-        <PhotoFavButton favorited={favorited} toggleFavorite={toggleFavorite} photoId={photo.id}/>
+        <PhotoFavButton favorited={favorited} toggleFavorite={toggleFavorite} photoId={photo.id} />
        
         <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.name}`} />
         <div className="photo-list__user-details">
