@@ -13,10 +13,11 @@ import topics from "../mocks/topics";
 const HomeRoute = () => {
   
   //const [favorite, setFavorite] = useState('off');
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites, setIsFavPhotoExist ] = useState([]); // create an empty favoritted array
 
   const toggleFavorite = (photoId) =>{
     console.log("Toggle favorites", photoId)
+
 if (favorites.includes(photoId)){
  setFavorites(favorites.filter((id) => id !== photoId)) //removes existing favorite, not match is kept
 } else { // if its not in favorites
@@ -26,7 +27,7 @@ if (favorites.includes(photoId)){
   };
   return (
     <div className="home-route">
-<TopNavigationBar topics={topics}/>
+<TopNavigationBar topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} isFavPhotoExist={favorites.length > 0}/>
 <PhotoList photos={photos} favorites={favorites} toggleFavorite={toggleFavorite}/>
 </div>
   );

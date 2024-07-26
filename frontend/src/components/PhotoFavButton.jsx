@@ -13,7 +13,7 @@ function PhotoFavButton(props) {
 
   const handleClick = () => {
     toggleFavorite(photoId);
-   
+  
   };
 
  
