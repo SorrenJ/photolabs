@@ -14,6 +14,12 @@ const PhotoList = (props) => {
     console.log("you clicked on a photo", photo.id);
     setSelectedPhoto(photo);
   };
+
+  // sets the useState back to the default
+  const closeModal = () => {
+    setSelectedPhoto(null);
+  };
+
   return (
     <div>
     <ul className="photo-list">
@@ -30,6 +36,7 @@ const PhotoList = (props) => {
     {selectedPhoto && (
         <PhotoDetailsModal 
           photo={selectedPhoto}
+          onClose={closeModal}
         />
       )}
 
