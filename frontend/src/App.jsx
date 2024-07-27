@@ -8,31 +8,20 @@ import PhotoFavButton from './components/PhotoFavButton';
 
 import photos from "./mocks/photos";
 import topics from "./mocks/topics";
-
+import PhotoDetailsModal from "./routes/PhotoDetailsModal"
 import HomeRoute from './routes/HomeRoute'
 import './App.scss';
 
-// Note: Rendering a single component to build components in isolation
 
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
 
 const App = () => {
  
- 
+  const [displayModal, setDisplayModal] = useState(false);
  
   return (
     <div className="App">
-  <HomeRoute photos={photos} topics={topics} />
+  <HomeRoute photos={photos} topics={topics} displayModal={displayModal}/>
+  {displayModal && <PhotoDetailsModal onClose={() => setDisplayModal(false)} />}
     </div>
   );
 };

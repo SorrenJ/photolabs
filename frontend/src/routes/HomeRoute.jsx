@@ -9,6 +9,7 @@ import { useState } from "react";
 import PhotoFavButton from "../components/TopNavigationBar"
 import photos from "../mocks/photos";
 import topics from "../mocks/topics";
+import displayModal from "App"
 
 const HomeRoute = () => {
   
@@ -28,7 +29,7 @@ if (favorites.includes(photoId)){
   return (
     <div className="home-route">
 <TopNavigationBar topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} isFavPhotoExist={favorites.length > 0}/>
-<PhotoList photos={photos} favorites={favorites} toggleFavorite={toggleFavorite}/>
+<PhotoList photos={photos} favorites={favorites} toggleFavorite={toggleFavorite} displayModal={displayModal}/>
 </div>
   );
 };
