@@ -29,7 +29,7 @@ const PhotoList = (props) => {
       {props.photos.map(photo => (
         <PhotoListItem key={photo.id} 
         photo={photo} 
-        favorited={props.favorites.includes(photo.id)} 
+       favorited={props.favorites.includes(photo.id)} 
         toggleFavorite={props.toggleFavorite}
         onClick={handlePhotoClick}
         displayModal={displayModal}
