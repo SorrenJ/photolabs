@@ -4,21 +4,34 @@ import '../styles/PhotoDetailsModal.scss'
 import "../styles/PhotoListItem.scss";
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import photos from "../mocks/photos";
+import { useState } from "react";
 import PhotoFavButton from 'components/PhotoFavButton';
-const PhotoDetailsModal = ({photo, onClose}) => {
-  console.log("User name: "+ photo.user.name);
-  console.log("User city: "+ photo.location.city);
-  console.log("User country: "+ photo.location.country);
-  
+const PhotoDetailsModal = ({ photo, onClose }) => {
 
-  const similarPhotos = photo.similar_photos;
-  console.log("Similar photo 2 ID: " + similarPhotos.photo2.id);
-  console.log("Similar photo 3 ID: " + similarPhotos.photo3.id);
-  console.log("Similar photo 4 ID: " + similarPhotos.photo4.id);
-  console.log("Similar photo 5 ID: " + similarPhotos.photo5.id);
+  // const similarPhotos = photo?.similar_photos;
+  // const valuesArray = Object?.values(similarPhotos)|| []; 
+
+  // const similarPhotos = Object.values(photo.similar_photos);
  
+  const similarPhotos = photo && photo.similar_photos ? Object.values(photo.similar_photos) : [];
+  const [favorites, setFavorites] = useState([]); 
 
-  const valuesArray = Object.values(similarPhotos); 
+  // const toggleFavorite = (valuesArray) => {
+  //   if (favorites.includes(valuesArray)) {
+  //     setFavorites(favorites.filter((id) => id !== valuesArray)); // Remove existing favorite
+  //   } else {
+  //     setFavorites([...favorites, valuesArray]); // Add photoId to favorites
+  //   }
+  // };
+
+  const toggleFavorite = (photoId) => {
+    if (favorites.includes(photoId)) {
+      setFavorites(favorites.filter((id) => id !== photoId)); // Remove existing favorite
+    } else {
+      setFavorites([...favorites, photoId]); // Add photoId to favorites
+    }
+  };
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -54,7 +67,7 @@ const PhotoDetailsModal = ({photo, onClose}) => {
         </span>
       </div>
       <div className="photo-details-modal__images">
-        <PhotoList photos={valuesArray} favorites={[]}/>
+        <PhotoList photos={similarPhotos} favorites={favorites} toggleFavorite={toggleFavorite}/>
         </div>
       
   </div>
