@@ -4,48 +4,18 @@ import "../styles/TopicList.scss";
 import topics from "../mocks/topics";
 
 
-const sampleDataForTopicList = [
-  {
-    id: "1",
-    slug: "topic-1",
-    title: "Nature",
-  },
-  {
-    id: "2",
-    slug: "topic-2",
-    title: "Travel",
-  },
-  {
-    id: "3",
-    slug: "topic-3",
-    title: "People",
-  },
-];
+
 
 const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
-       
-       {/* {sampleDataForTopicList.map ((item) =>
-
-       <TopicListItem
-       
-       key={`topic-${item.id}`}
-       id={item.id}
-       slug={item.slug}
-       title={item.title}
-   />   
-      )
-
-       } */}
+  
 
 
+ {props.topics.map(topic => (
+<TopicListItem key={topic.id} topic={topic} />
 
-      {props.topics.map(topic => (
-
-        <TopicListItem key={topic.id} topic={topic} />
-
-      ))}
+))}
 
 
 
