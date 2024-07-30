@@ -16,7 +16,7 @@ toggleFavorite(photoId);
   
 return (
 
- <div className="photo-list__fav-icon">
+ <div className="photo-list__fav-icon"> 
  <div className="photo-list__fav-icon-svg" onClick={handleClick}>
  <FavIcon selected={favorited} />
 

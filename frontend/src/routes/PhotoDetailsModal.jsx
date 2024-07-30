@@ -10,16 +10,19 @@ import PhotoFavButton from 'components/PhotoFavButton';
 const PhotoDetailsModal = ({ photo, onClose, favorites, toggleFavorite }) => {
   const similarPhotos = photo && photo.similar_photos ? Object.values(photo.similar_photos) : [];
 
-
-
   return (
 
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="photo-details-modal__images">
 
+      <div className="photo-details-modal__images">
+      <PhotoFavButton
+         favorited={favorites.includes(photo.id)}
+         toggleFavorite={toggleFavorite}
+         photoId={photo.id}
+ />
         <img
           className="photo-details-modal__image"
           src={photo.urls.regular}

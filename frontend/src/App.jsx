@@ -28,11 +28,11 @@ setFavorites(favorites.filter((id) => id !== photoId)); // Remove existing favor
 } else { setFavorites([...favorites, photoId]); // Add photoId to favorites 
 } 
 }; 
-const openModal = (photo) => { setSelectedPhoto(photo); 
+const openModal = (photo) => { 
 setSelectedPhoto(photo); 
 setDisplayModal(true);
 }; 
-const closeModal = () => { setSelectedPhoto(null);
+const closeModal = () => { 
 setSelectedPhoto(null); 
 setDisplayModal(false);
 };
@@ -41,7 +41,7 @@ setDisplayModal(false);
  return (
 
 <div className="App">
- <HomeRoute photos={photos} topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} openModal={openModal}/>
+ <HomeRoute photos={photos} topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} openModal={openModal} />
 
 {displayModal && selectedPhoto && ( <PhotoDetailsModal photo={selectedPhoto} onClose={closeModal} favorites={favorites} toggleFavorite={toggleFavorite} />)};
 </div>
