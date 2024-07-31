@@ -9,35 +9,12 @@ import photos from "./mocks/photos";
 import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal"
 import HomeRoute from './routes/HomeRoute'
+import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
-
   
-  
-  
-
 const App = () => {
 
-const [favorites, setFavorites] = useState([]);
-const [displayModal, setDisplayModal] = useState(false); 
-const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-
-const toggleFavorite = (photoId) => { 
-if (favorites.includes(photoId)) { 
-setFavorites(favorites.filter((id) => id !== photoId)); // Remove existing favorite 
-} else { setFavorites([...favorites, photoId]); // Add photoId to favorites 
-} 
-}; 
-const openModal = (photo) => { 
-setSelectedPhoto(photo); 
-setDisplayModal(true);
-}; 
-const closeModal = () => { 
-setSelectedPhoto(null); 
-setDisplayModal(false);
-};
-
-
+const { favorites, toggleFavorite, openModal, closeModal, selectedPhoto, displayModal } = useApplicationData();
  return (
 
 <div className="App">
@@ -48,7 +25,5 @@ setDisplayModal(false);
 );
 
 };
-
-  
 
 export default App;
