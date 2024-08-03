@@ -14,7 +14,7 @@ const PhotoList = ({ photos, favorites, toggleFavorite, onPhotoClick }) => {
 
  
 <ul className="photo-list">
- {photos.map(photo => (
+ {photos && photos.map(photo => (
  <PhotoListItem 
 key={photo.id}
 photo={photo}
