@@ -6,7 +6,7 @@ import TopicList from "./components/TopicList";
 import TopNavigationBar from './components/TopNavigationBar';
 import PhotoFavButton from './components/PhotoFavButton';
 // import photos from "./mocks/photos";
-import topics from "./mocks/topics";
+// import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal"
 import HomeRoute from './routes/HomeRoute'
 import useApplicationData from 'hooks/useApplicationData';
@@ -18,7 +18,7 @@ const { state, favorites, toggleFavorite, openModal, closeModal, selectedPhoto, 
  
 
 const photos = state && state.photoData;
-// const topics = state.topicData;
+const topics = state.topicData;
 return (
 
 <div className="App">

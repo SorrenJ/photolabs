@@ -50,6 +50,14 @@ const reducer = (state, action) => {
 
       };
 
+    case 'SET_TOPIC_DATA':
+      return {
+        ...state,
+        topicData: action.payload,
+
+      };
+
+
     case 'OPEN_MODAL':
       return {
         ...state,
@@ -101,21 +109,21 @@ const useApplicationData = () => {
       });
   }, []); // Empty dependency array ensures this effect runs only once
 
-  // useEffect(() => {
-  //   fetch("/api/topics")
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! Status: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching topic data:', error.message);
-  //     });
-  // }, []); // Empty dependency array ensures this effect runs only once
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
+      })
+      .catch((error) => {
+        console.error('Error fetching topic data:', error.message);
+      });
+  }, []); // Empty dependency array ensures this effect runs only once
 
 
 
