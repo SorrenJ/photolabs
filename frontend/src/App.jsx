@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
- import PhotoListItem from './components/PhotoListItem';
+import PhotoListItem from './components/PhotoListItem';
 import PhotoList from './components/PhotoList';
 import TopicList from "./components/TopicList";
 import TopNavigationBar from './components/TopNavigationBar';
@@ -11,23 +11,30 @@ import PhotoDetailsModal from "./routes/PhotoDetailsModal"
 import HomeRoute from './routes/HomeRoute'
 import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
-  
+
 const App = () => {
 
-const { state, favorites, toggleFavorite, openModal, closeModal, selectedPhoto, displayModal } = useApplicationData();
- 
+    const { state, favorites, toggleFavorite, openModal, closeModal, selectedPhoto, displayModal, setTopic } = useApplicationData();
 
-const photos = state && state.photoData;
-const topics = state.topicData;
-return (
 
-<div className="App">
- <HomeRoute photos={photos} topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} openModal={openModal} />
+    const photos = state && state.photoData;
+    const topics = state && state.topicData;
 
-{displayModal && selectedPhoto && ( <PhotoDetailsModal photo={selectedPhoto} onClose={closeModal} favorites={favorites} toggleFavorite={toggleFavorite} />)};
-</div>
-);
+    return (
+
+
+        <div className="App">
+
+            <HomeRoute photos={photos} topics={topics} favorites={favorites} toggleFavorite={toggleFavorite} openModal={openModal} setTopic={setTopic} />
+
+            {displayModal && selectedPhoto && (<PhotoDetailsModal photo={selectedPhoto} onClose={closeModal} favorites={favorites} toggleFavorite={toggleFavorite} />)};
+
+        </div>
+
+    );
+
 
 };
+
 
 export default App;
