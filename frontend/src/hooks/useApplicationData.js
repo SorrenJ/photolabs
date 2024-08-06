@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-
+// Actions for reducer cases
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -12,7 +12,7 @@ export const ACTIONS = {
 
 }
 
-
+// Intitial setStates for reducer
 const initialState = {
   favorites: [],
   displayModal: false,
@@ -23,7 +23,7 @@ const initialState = {
 
 };
 
-
+// Reducer function begins
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
@@ -59,7 +59,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         topicId: action.topicId,
-        
+
       };
 
     case 'OPEN_MODAL':
@@ -86,12 +86,13 @@ const reducer = (state, action) => {
 
   }
 };
+// Reducer function ends
 
-
+// UseApplicationData function begins
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
- // Fetch photos and topics for the selected topicId
+  // Fetch photos and topics for the selected topicId (default is null)
   useEffect(() => {
     Promise.all([
       fetch('/api/photos').then(res => res.json()),
@@ -104,16 +105,19 @@ const useApplicationData = () => {
       .catch(error => {
         console.error('Error fetching data:', error);
       })
-  }, []);
+  }, []); // [] ensures it only runs once
 
+  // Fetches the photos based on the current topicId
   useEffect(() => {
     if (state.topicId) {
       fetch(`/api/topics/photos/${state.topicId}`)
         .then(res => res.json())
         .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
     }
-  }, [state.topicId]);
+  }, [state.topicId]); // ensures it only runs once when topicId is selected
 
+
+  // Helper functions begins 
 
   const toggleFavorite = (photoId) => {
     dispatch({ type: 'TOGGLE_FAVORITE', payload: photoId });

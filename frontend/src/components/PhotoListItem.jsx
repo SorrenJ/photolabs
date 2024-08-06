@@ -1,23 +1,18 @@
 import React from "react";
-
 import PhotoFavButton from "./PhotoFavButton";
-
 import "../styles/PhotoListItem.scss";
 
-  
-  
-
 const PhotoListItem = ({ photo, favorited, toggleFavorite, onClick }) => {
-
-  
 
 return (
  <li className="photo-list__item" >
 
+{/* // fav button for each photo */}
  <PhotoFavButton
  favorited={favorited}
  toggleFavorite={toggleFavorite}
  photoId={photo.id} />
+ {/* // fav button end*/}
 
  <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.name}`} onClick={() => onClick(photo)}/>
  <div className="photo-list__user-details">
@@ -27,11 +22,9 @@ return (
   <p className="photo-list__user-location">{photo.location.city}, {photo.location.country}</p>
  </div>
  </div>
-
  </li>
 
  );
-
 };
 
 export default PhotoListItem;

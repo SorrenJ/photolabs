@@ -3,8 +3,6 @@ import '../styles/PhotoDetailsModal.scss'
 import "../styles/PhotoListItem.scss";
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
-import photos from "../mocks/photos";
-import { useState } from "react";
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = ({ photo, onClose, favorites, toggleFavorite }) => {
